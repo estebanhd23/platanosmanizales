@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Menú fijo */
+.menu-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-fijo .logo {
+    width: 120px;
+}
+
+/* Menú normal */
+.menu-fijo nav {
+    display: flex;
+}
+
+.menu-fijo nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-fijo nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.menu-fijo nav ul li a:hover {
+    color: #25d366;
+}
+
+/* Menú desplegable */
+.menu-desplegado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Cuando el menú está activo */
+.menu-desplegado.activo {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-desplegado ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-desplegado ul li {
+    margin: 15px 0;
+}
+
+.menu-desplegado ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+/* Menú hamburguesa */
+.menu-hamburguesa {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-hamburguesa {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .menu-hamburguesa div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+    }
+
+    .menu-desplegado {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .cerrar-menu {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .cerrar-menu:hover {
+        color: #25d366;
+    }
+
+}
+
+/* Video */
+.video-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+
+/* Ajustes de diseño */
+.seccion-texto-imagenes {
+    flex: 1;
+    color: white;
+    padding: 20px;
+    z-index: 3;
+}
+
+.imagenes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.imagenes img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+form input, form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #25d366;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #128c7e;
+}
+
+footer {
+    background-color: white;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+    align-items: center;
+}
+
+footer .footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #25d366;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #25d366;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .footer-col {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Estilo para el formulario */
+.formulario {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.formulario input, 
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.formulario button {
+    padding: 10px;
+    background-color: #25d366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+.formulario button:hover {
+    background-color: #20b954;
+}
+
+/* Estilos para el menú */
+.menu-fijo nav {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-hamburguesa {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-fijo nav {
+        display: none; /* Oculta el menú en versión móvil */
+    }
+    .menu-hamburguesa {
+        display: block;
+    }
+    .menu-movil {
+        display: none;
+    }
+    .menu-hamburguesa.active + .menu-movil {
+        display: flex;
+    }
+}
